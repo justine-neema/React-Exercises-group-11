@@ -55,7 +55,7 @@ function TeamDashboard(): ReactElement {
           Set on producing a clean product as a team.
         </p>
       </header>
-
+                                      
       <section>
         {members.map((member) => (
           <MemberCard
