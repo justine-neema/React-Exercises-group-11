@@ -1,6 +1,8 @@
 // AUthor Neema
+// Author: Karabo-jpg (Task 30)
 import type { ReactElement } from 'react'
 import MemberCard from './MemberCard'
+import './TeamDashboard.css'
 
 type TeamMember = {
   name: string
@@ -37,7 +39,7 @@ const members: TeamMember[] = [
 function TeamDashboard(): ReactElement {
   return (
     <>
-      <header>
+      <header className="dashboard-header">
         <h1>Group 11 Team Dashboard</h1>
         <p>
           Our group application keeps teams organized, collaborative and
@@ -45,7 +47,7 @@ function TeamDashboard(): ReactElement {
         </p>
       </header>
                                       
-      <section>
+      <section className="team-dashboard-container">
         {members.map((member) => (
           <MemberCard
             key={member.name}
