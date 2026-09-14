@@ -86,8 +86,13 @@ const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
   setNewMemberName('')
 }
 // Author: Phillip Mulindwa (Task 45: Remove Member)
-const handleRemoveMember = (id: number): void => {
-  setTeamMembers(prevMembers => prevMembers.filter(member => member.id !== id))
+// Author: Phillip Mulindwa (Task 47: Toggle Member Status)
+const handleToggleStatus = (id: number): void => {
+  setTeamMembers(prevMembers =>
+    prevMembers.map(member =>
+      member.id === id ? { ...member, isActive: !member.isActive } : member
+    )
+  )
 }
   return (
     <>
