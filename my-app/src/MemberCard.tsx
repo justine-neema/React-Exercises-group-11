@@ -11,6 +11,7 @@ type MemberCardProps = {
 
 }
 // Author Neema
+// Author: Karabo-jpg (Task 27: Inline styles)
 function MemberCard({ name, role='Team Member', bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
   return (
     // Author Joshua Ochel Mugisha
@@ -18,7 +19,7 @@ function MemberCard({ name, role='Team Member', bio, tasksCompleted, isActive }:
       <h2>{name}</h2>
       <h3>{role}</h3>
       <p>{bio}</p>
-      <p>Tasks completed: {tasksCompleted}</p>
+      <p style={{ fontWeight: 'bold' }}>Tasks completed: {tasksCompleted}</p>
       <p>Active: {isActive ? 'active' : 'inactive'}</p>
       {bio && <p>{bio}</p>}
     </article>
