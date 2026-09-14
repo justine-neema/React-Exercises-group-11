@@ -18,3 +18,17 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
+
+/* Author: elohejacs (Tasks 36-40: styling for the add-member form) */
+.add-member-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.submitted-name {
+  text-align: center;
+  font-style: italic;
+}
