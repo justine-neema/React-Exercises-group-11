@@ -1,0 +1,41 @@
+/*AUTHOR: JOSHUA OCHEL MUGISHA */
+
+/* Task 24 — card styling: padding, border, spacing, background */
+.member-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 8px;
+  background-color: #ffffff;
+  max-width: 300px;
+}
+
+/* Task 23 — selectors for name, role, and other content */
+.member-name {
+  font-size: 1.2rem;
+  margin: 0 0 4px 0;
+}
+
+.member-role {
+  color: #555555;
+  margin: 0 0 8px 0;
+}
+
+.member-status {
+  font-weight: bold;
+}
+
+.member-bio {
+  font-style: italic;
+  color: #666666;
+}
+
+/* status classes used by task 26 */
+.active {
+  border-left: 4px solid #2e7d32;
+}
+
+.inactive {
+  border-left: 4px solid #9e9e9e;
+  opacity: 0.85;
+}
