@@ -66,12 +66,25 @@ const [teamMembers, setTeamMembers] = useState<TeamMember[]>(initialMembers)
   }
 
   // Author: elohejacs (Task 39 & 40: Form Submission, typed, preventDefault)
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault()
-    setSubmittedName(newMemberName)
-    console.log('Submitted member name:', newMemberName)
-    setNewMemberName('')
+// Author: Phillip Mulindwa (Task 43: Add Member - now also appends a new TeamMember to state)
+const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+  event.preventDefault()
+  if (!newMemberName.trim()) return
+
+  const newMember: TeamMember = {
+    id: Date.now(),
+    name: newMemberName,
+    role: 'New Member',
+    bio: '',
+    tasksCompleted: 0,
+    isActive: true
   }
+
+  setTeamMembers(prevMembers => [...prevMembers, newMember])
+  setSubmittedName(newMemberName)
+  console.log('Submitted member name:', newMemberName)
+  setNewMemberName('')
+}
 
   return (
     <>
