@@ -1,5 +1,9 @@
 // Author: Adeline
 import type { ReactElement } from 'react'
+// Author: Joshua Ochel Mugisha
+import './MemberCard.css'
+// Author: Neema
+// Author: Karabo-jpg (Task 27: Inline styles)
 
 type MemberCardProps = {
   name: string
@@ -9,13 +13,14 @@ type MemberCardProps = {
   isActive: boolean        // Author: Adeline
 }
 
-function MemberCard({ name, role, bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
+function MemberCard({ name, role = 'Team Member', bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
   return (
-    <article>
+    // Author: Joshua Ochel Mugisha
+    <article className={`member-card ${isActive ? 'active' : 'inactive'}`}>
       <h2>{name}</h2>
       <h3>{role}</h3>
       {/* Author: Adeline */}
-      <p>Tasks completed: {tasksCompleted}</p>
+      <p style={{ fontWeight: 'bold' }}>Tasks completed: {tasksCompleted}</p>
       <p>Active: {isActive ? 'active' : 'inactive'}</p>
       {bio && <p>{bio}</p>}
     </article>

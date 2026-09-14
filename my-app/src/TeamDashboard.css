@@ -1,0 +1,20 @@
+/* Author: Karabo-jpg */
+/* Task 30: Dashboard Layout */
+.team-dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Task 29: Responsive Design using media query */
+@media (min-width: 768px) {
+  .team-dashboard-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

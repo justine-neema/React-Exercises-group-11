@@ -1,6 +1,9 @@
-// AUthor Neema
+// Author: Neema
+// Author: Karabo (Task 30)
+import { useState } from 'react'
 import type { ReactElement } from 'react'
 import MemberCard from './MemberCard'
+import './TeamDashboard.css'
 
 type TeamMember = {
   name: string
@@ -11,45 +14,36 @@ type TeamMember = {
 }
 
 const members: TeamMember[] = [
-  { 
+  {
     name: 'Adeline',
-<<<<<<< HEAD
     role: 'Frontend Developer',
     bio: 'Builds clean interfaces and keeps the user experience simple and engaging.',
     tasksCompleted: 8,
     isActive: true
-======= 
-    role: 'React Developer',
-    bio: 'Builds clean interfaces and keeps the user experience simple and engaging.'
->>>>>>> 16a494f5ac5965f37ec86999e8d2c31e3ffc1e53
   },
   {
     name: 'Neema',
     role: 'Project Lead',
     bio: 'Coordinates the team, keeps priorities clear, and turns ideas into action.',
-    tasksCompleted: 12, // AUthor: Adeline
-    isActive: true // Author: Adeline
+    tasksCompleted: 12,   // Author: Adeline
+    isActive: true        // Author: Adeline
   },
   {
-<<<<<<< HEAD
     name: 'Maya',
     role: 'UX Designer',
     bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.',
-    tasksCompleted: 5,   // Author: Adeline
-    isActive: false  // Author: Adeline
-=======
-
-    name: 'Karabo',
-    role: 'React Developer',
-    bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.'
->>>>>>> 16a494f5ac5965f37ec86999e8d2c31e3ffc1e53
+    tasksCompleted: 5,    // Author: Adeline
+    isActive: false       // Author: Adeline
   }
 ]
 
 function TeamDashboard(): ReactElement {
+  // Task 31: useState Hook (Typed)
+  const [teamScore, setTeamScore] = useState<number>(0)
+
   return (
     <>
-      <header>
+      <header className="dashboard-header">
         <h1>Group 11 Team Dashboard</h1>
         <p>
           Our group application keeps teams organized, collaborative and
@@ -57,16 +51,25 @@ function TeamDashboard(): ReactElement {
         </p>
       </header>
 
-      <section>
+      {/* Task 32: Display State */}
+      <div className="score-panel">
+        <h2>Team Score: {teamScore}</h2>
+        {/* Task 34: Functional Updates */}
+        <button onClick={() => setTeamScore(prevScore => prevScore + 1)}>
+          Increase Score
+        </button>
+      </div>
+
+      <section className="team-dashboard-container">
         {members.map((member) => (
+          // Author: Adeline
           <MemberCard
             key={member.name}
             name={member.name}
             role={member.role}
             bio={member.bio}
-            {/* Author: Adeline */}
-            tasksCompleted={member.tasksCompleted} 
-            isActive={member.isActive} 
+            tasksCompleted={member.tasksCompleted}
+            isActive={member.isActive}
           />
         ))}
       </section>
