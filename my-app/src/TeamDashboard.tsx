@@ -50,6 +50,11 @@ function TeamDashboard(): ReactElement {
           Set on producing a clean product as a team.
         </p>
       </header>
+      
+      {/* Task 32: Display State */}
+      <div className="score-panel">
+        <h2>Team Score: {teamScore}</h2>
+      </div>
                                       
       <section className="team-dashboard-container">
         {members.map((member) => (
