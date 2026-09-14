@@ -1,6 +1,4 @@
-/*AUTHOR: JOSHUA OCHEL MUGISHA */
-
-/* Task 24 — card styling: padding, border, spacing, background */
+/* Author Joshua — Task 24: card styling (padding, border, spacing, background) */
 .member-card {
   padding: 16px;
   border: 1px solid #ddd;
@@ -10,7 +8,7 @@
   max-width: 300px;
 }
 
-/* Task 23 — selectors for name, role, and other content */
+/* Author Joshua — Task 23: selectors for name, role, status, and other content */
 .member-name {
   font-size: 1.2rem;
   margin: 0 0 4px 0;
@@ -30,7 +28,7 @@
   color: #666666;
 }
 
-/* status classes used by task 26 */
+/* Author Joshua — Task 26: status classes toggled in MemberCard.tsx */
 .active {
   border-left: 4px solid #2e7d32;
 }
