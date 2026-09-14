@@ -6,23 +6,31 @@ type TeamMember = {
   name: string
   role: string
   bio: string
+  tasksCompleted: number
+  isActive: boolean
 }
 
 const members: TeamMember[] = [
   {
     name: 'Adeline',
     role: 'Frontend Developer',
-    bio: 'Builds clean interfaces and keeps the user experience simple and engaging.'
+    bio: 'Builds clean interfaces and keeps the user experience simple and engaging.',
+    tasksCompleted: 8,
+    isActive: true
   },
   {
     name: 'Jacob',
     role: 'Project Lead',
-    bio: 'Coordinates the team, keeps priorities clear, and turns ideas into action.'
+    bio: 'Coordinates the team, keeps priorities clear, and turns ideas into action.',
+    tasksCompleted: 12,
+    isActive: true
   },
   {
     name: 'Maya',
     role: 'UX Designer',
-    bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.'
+    bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.',
+    tasksCompleted: 5,
+    isActive: false
   }
 ]
 
@@ -44,6 +52,8 @@ function TeamDashboard(): ReactElement {
             name={member.name}
             role={member.role}
             bio={member.bio}
+            tasksCompleted={member.tasksCompleted}
+            isActive={member.isActive}
           />
         ))}
       </section>
