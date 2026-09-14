@@ -32,3 +32,16 @@
   text-align: center;
   font-style: italic;
 }
+/* Author: Phillip Mulindwa (Task 48: Filter Members controls) */
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.filter-controls button.active-filter {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #2e7d32;
+}

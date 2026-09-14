@@ -18,6 +18,7 @@ interface TeamMember {
 
 const initialMembers: TeamMember[] = [
   {
+    id: 1,
     name: 'Adeline',
     role: 'Frontend Developer',
     bio: 'Builds clean interfaces and keeps the user experience simple and engaging.',
@@ -25,6 +26,7 @@ const initialMembers: TeamMember[] = [
     isActive: true
   },
   {
+    id: 2,
     name: 'Neema',
     role: 'Project Lead',
     bio: 'Coordinates the team, keeps priorities clear, and turns ideas into action.',
@@ -32,6 +34,7 @@ const initialMembers: TeamMember[] = [
     isActive: true        // Author: Adeline
   },
   {
+    id: 3,
     name: 'Maya',
     role: 'UX Designer',
     bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.',
@@ -43,18 +46,19 @@ const initialMembers: TeamMember[] = [
 function TeamDashboard(): ReactElement {
   // Task 31: useState Hook (Typed)
   const [teamScore, setTeamScore] = useState<number>(0)
+  // Author: Phillip Mulindwa (Task 48: Filter Members)
+  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all')
 
   // Author: elohejacs (Task 42: Array State - typed useState for members)
   // Note: setter is wired up for Task 43 (adding members), which is out of scope here.
   // Author: Phillip Mulindwa (Task 42 completed: added setTeamMembers so members can be added/removed/updated)
-const [teamMembers, setTeamMembers] = useState<TeamMember[]>(initialMembers)
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>(initialMembers)
 
   // Author: elohejacs (Task 36: String State for new member's name)
   const [newMemberName, setNewMemberName] = useState<string>('')
 
   // Author: elohejacs (Task 40: displays the most recently submitted name)
   const [submittedName, setSubmittedName] = useState<string>('')
-
   // Author: elohejacs (Task 35: Decrease State without going below 0)
   const decreaseScore = (): void => {
     setTeamScore(prevScore => (prevScore > 0 ? prevScore - 1 : 0))
@@ -66,8 +70,8 @@ const [teamMembers, setTeamMembers] = useState<TeamMember[]>(initialMembers)
   }
 
   // Author: elohejacs (Task 39 & 40: Form Submission, typed, preventDefault)
-// Author: Phillip Mulindwa (Task 43: Add Member - now also appends a new TeamMember to state)
-const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+  // Author: Phillip Mulindwa (Task 43: Add Member - now also appends a new TeamMember to state)
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
   event.preventDefault()
   if (!newMemberName.trim()) return
 
@@ -84,16 +88,25 @@ const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
   setSubmittedName(newMemberName)
   console.log('Submitted member name:', newMemberName)
   setNewMemberName('')
-}
-// Author: Phillip Mulindwa (Task 45: Remove Member)
-// Author: Phillip Mulindwa (Task 47: Toggle Member Status)
-const handleToggleStatus = (id: number): void => {
+  }
+
+  const handleRemoveMember = (id: number): void => {
+    setTeamMembers(prevMembers => prevMembers.filter(member => member.id !== id))
+  }
+
+  // Author: Phillip Mulindwa (Task 47: Toggle Member Status)
+  const handleToggleStatus = (id: number): void => {
   setTeamMembers(prevMembers =>
     prevMembers.map(member =>
       member.id === id ? { ...member, isActive: !member.isActive } : member
     )
   )
-}
+  }
+
+  const visibleMembers = teamMembers.filter(member =>
+    statusFilter === 'all' || (statusFilter === 'active' ? member.isActive : !member.isActive)
+  )
+
   return (
     <>
       <header className="dashboard-header">
@@ -131,8 +144,15 @@ const handleToggleStatus = (id: number): void => {
       </form>
       {submittedName && <p className="submitted-name">Last submitted name: {submittedName}</p>}
 
+      {/* Author: Phillip Mulindwa (Task 48: Filter Members controls) */}
+      <div className="filter-controls">
+        <button type="button" className={statusFilter === 'all' ? 'active-filter' : ''} onClick={() => setStatusFilter('all')}>All</button>
+        <button type="button" className={statusFilter === 'active' ? 'active-filter' : ''} onClick={() => setStatusFilter('active')}>Active</button>
+        <button type="button" className={statusFilter === 'inactive' ? 'active-filter' : ''} onClick={() => setStatusFilter('inactive')}>Inactive</button>
+      </div>
+
       <section className="team-dashboard-container">
-        {teamMembers.map((member) => (
+        {visibleMembers.map((member) => (
           // Author: Adeline
           <MemberCard
   key={member.id}
