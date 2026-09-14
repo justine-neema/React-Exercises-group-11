@@ -11,3 +11,10 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+
+/* Task 29: Responsive Design using media query */
+@media (min-width: 768px) {
+  .team-dashboard-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
