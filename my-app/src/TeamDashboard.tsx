@@ -6,7 +6,9 @@ import MemberCard from './MemberCard'
 import './TeamDashboard.css'
 
 // Author: elohejacs (Task 41: Member Interface)
+// Author: Phillip Mulindwa (added id field — required for Task 45 remove & Task 47 toggle)
 interface TeamMember {
+  id: number
   name: string
   role: string
   bio: string
@@ -44,7 +46,8 @@ function TeamDashboard(): ReactElement {
 
   // Author: elohejacs (Task 42: Array State - typed useState for members)
   // Note: setter is wired up for Task 43 (adding members), which is out of scope here.
-  const [teamMembers] = useState<TeamMember[]>(initialMembers)
+  // Author: Phillip Mulindwa (Task 42 completed: added setTeamMembers so members can be added/removed/updated)
+const [teamMembers, setTeamMembers] = useState<TeamMember[]>(initialMembers)
 
   // Author: elohejacs (Task 36: String State for new member's name)
   const [newMemberName, setNewMemberName] = useState<string>('')
