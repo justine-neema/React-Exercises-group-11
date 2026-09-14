@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-
+// Author Neema
 type MemberCardProps = {
   name: string
   role: string
@@ -9,7 +9,12 @@ type MemberCardProps = {
 
 }
 
+<<<<<<< HEAD
 function MemberCard({ name, role, bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
+=======
+// Author Neema
+function MemberCard({ name, role, bio }: MemberCardProps): ReactElement {
+>>>>>>> 16a494f5ac5965f37ec86999e8d2c31e3ffc1e53
   return (
     <article>
       <h2>{name}</h2>
