@@ -13,15 +13,10 @@ type TeamMember = {
 const members: TeamMember[] = [
   {
     name: 'Adeline',
-<<<<<<< HEAD
     role: 'Frontend Developer',
     bio: 'Builds clean interfaces and keeps the user experience simple and engaging.',
     tasksCompleted: 8,
     isActive: true
-=======
-    role: 'React Developer',
-    bio: 'Builds clean interfaces and keeps the user experience simple and engaging.'
->>>>>>> 16a494f5ac5965f37ec86999e8d2c31e3ffc1e53
   },
   {
     name: 'Neema',
@@ -31,17 +26,11 @@ const members: TeamMember[] = [
     isActive: true
   },
   {
-<<<<<<< HEAD
     name: 'Maya',
     role: 'UX Designer',
     bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.',
     tasksCompleted: 5,
     isActive: false
-=======
-    name: 'Karabo',
-    role: 'React Developer',
-    bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.'
->>>>>>> 16a494f5ac5965f37ec86999e8d2c31e3ffc1e53
   }
 ]
 
