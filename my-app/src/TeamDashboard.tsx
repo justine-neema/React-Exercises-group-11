@@ -1,5 +1,6 @@
 // AUthor Neema
 // Author: Karabo-jpg (Task 30)
+import { useState } from 'react'
 import type { ReactElement } from 'react'
 import MemberCard from './MemberCard'
 import './TeamDashboard.css'
@@ -37,6 +38,9 @@ const members: TeamMember[] = [
 ]
 
 function TeamDashboard(): ReactElement {
+  // Task 31: useState Hook (Typed)
+  const [teamScore, setTeamScore] = useState<number>(0)
+
   return (
     <>
       <header className="dashboard-header">
