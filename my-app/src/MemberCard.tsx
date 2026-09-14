@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react'
+// Joshua Ochel Mugisha
+import './MemberCard.css' 
 // Author Neema
 type MemberCardProps = {
   name: string
@@ -9,9 +11,10 @@ type MemberCardProps = {
 
 }
 // Author Neema
-function MemberCard({ name, role, bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
+function MemberCard({ name, role='Team Member', bio, tasksCompleted, isActive }: MemberCardProps): ReactElement {
   return (
-    <article>
+    // Author Joshua Ochel Mugisha
+    <article className={`member-card ${isActive ? 'active' : 'inactive'}`}>
       <h2>{name}</h2>
       <h3>{role}</h3>
       <p>{bio}</p>
