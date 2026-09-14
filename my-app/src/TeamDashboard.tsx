@@ -54,6 +54,10 @@ function TeamDashboard(): ReactElement {
       {/* Task 32: Display State */}
       <div className="score-panel">
         <h2>Team Score: {teamScore}</h2>
+        {/* Task 33: Update State */}
+        <button onClick={() => setTeamScore(teamScore + 1)}>
+          Increase Score
+        </button>
       </div>
                                       
       <section className="team-dashboard-container">
