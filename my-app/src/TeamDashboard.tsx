@@ -130,13 +130,16 @@ const handleRemoveMember = (id: number): void => {
         {teamMembers.map((member) => (
           // Author: Adeline
           <MemberCard
-            key={member.name}
-            name={member.name}
-            role={member.role}
-            bio={member.bio}
-            tasksCompleted={member.tasksCompleted}
-            isActive={member.isActive}
-          />
+  key={member.id}
+  id={member.id}
+  name={member.name}
+  role={member.role}
+  bio={member.bio}
+  tasksCompleted={member.tasksCompleted}
+  isActive={member.isActive}
+  onRemove={handleRemoveMember}
+  onToggleStatus={handleToggleStatus}
+/>
         ))}
       </section>
     </>
