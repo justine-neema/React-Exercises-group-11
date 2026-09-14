@@ -1,11 +1,12 @@
 // Author: Neema
 // Author: Karabo (Task 30)
 import { useState } from 'react'
-import type { ReactElement } from 'react'
+import type { ReactElement, ChangeEvent, FormEvent } from 'react'
 import MemberCard from './MemberCard'
 import './TeamDashboard.css'
 
-type TeamMember = {
+// Author: elohejacs (Task 41: Member Interface)
+interface TeamMember {
   name: string
   role: string
   bio: string
@@ -13,7 +14,7 @@ type TeamMember = {
   isActive: boolean
 }
 
-const members: TeamMember[] = [
+const initialMembers: TeamMember[] = [
   {
     name: 'Adeline',
     role: 'Frontend Developer',
@@ -41,6 +42,34 @@ function TeamDashboard(): ReactElement {
   // Task 31: useState Hook (Typed)
   const [teamScore, setTeamScore] = useState<number>(0)
 
+  // Author: elohejacs (Task 42: Array State - typed useState for members)
+  // Note: setter is wired up for Task 43 (adding members), which is out of scope here.
+  const [teamMembers] = useState<TeamMember[]>(initialMembers)
+
+  // Author: elohejacs (Task 36: String State for new member's name)
+  const [newMemberName, setNewMemberName] = useState<string>('')
+
+  // Author: elohejacs (Task 40: displays the most recently submitted name)
+  const [submittedName, setSubmittedName] = useState<string>('')
+
+  // Author: elohejacs (Task 35: Decrease State without going below 0)
+  const decreaseScore = (): void => {
+    setTeamScore(prevScore => (prevScore > 0 ? prevScore - 1 : 0))
+  }
+
+  // Author: elohejacs (Task 38: Change Event, typed)
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setNewMemberName(event.target.value)
+  }
+
+  // Author: elohejacs (Task 39 & 40: Form Submission, typed, preventDefault)
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    setSubmittedName(newMemberName)
+    console.log('Submitted member name:', newMemberName)
+    setNewMemberName('')
+  }
+
   return (
     <>
       <header className="dashboard-header">
@@ -58,10 +87,28 @@ function TeamDashboard(): ReactElement {
         <button onClick={() => setTeamScore(prevScore => prevScore + 1)}>
           Increase Score
         </button>
+        {/* Author: elohejacs (Task 35: Decrease State) */}
+        <button onClick={decreaseScore}>
+          Decrease Score
+        </button>
       </div>
 
+      {/* Author: elohejacs (Tasks 36-40: Controlled form for a new member's name) */}
+      <form className="add-member-form" onSubmit={handleSubmit}>
+        <label htmlFor="newMemberName">New member name</label>
+        <input
+          id="newMemberName"
+          type="text"
+          value={newMemberName}
+          onChange={handleNameChange}
+          placeholder="Enter member name"
+        />
+        <button type="submit">Submit</button>
+      </form>
+      {submittedName && <p className="submitted-name">Last submitted name: {submittedName}</p>}
+
       <section className="team-dashboard-container">
-        {members.map((member) => (
+        {teamMembers.map((member) => (
           // Author: Adeline
           <MemberCard
             key={member.name}
