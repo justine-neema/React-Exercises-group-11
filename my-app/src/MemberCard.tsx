@@ -1,11 +1,12 @@
 import type { ReactElement } from 'react'
-
+// Author Neema
 type MemberCardProps = {
   name: string
   role: string
   bio: string
 }
 
+// Author Neema
 function MemberCard({ name, role, bio }: MemberCardProps): ReactElement {
   return (
     <article>

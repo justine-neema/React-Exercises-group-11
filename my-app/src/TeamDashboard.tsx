@@ -11,17 +11,17 @@ type TeamMember = {
 const members: TeamMember[] = [
   {
     name: 'Adeline',
-    role: 'Frontend Developer',
+    role: 'React Developer',
     bio: 'Builds clean interfaces and keeps the user experience simple and engaging.'
   },
   {
-    name: 'Jacob',
+    name: 'Neema',
     role: 'Project Lead',
     bio: 'Coordinates the team, keeps priorities clear, and turns ideas into action.'
   },
   {
-    name: 'Maya',
-    role: 'UX Designer',
+    name: 'Karabo',
+    role: 'React Developer',
     bio: 'Shapes intuitive layouts and thoughtful interactions for every screen.'
   }
 ]
@@ -32,8 +32,8 @@ function TeamDashboard(): ReactElement {
       <header>
         <h1>Group 11 Team Dashboard</h1>
         <p>
-          Our group application helps teammates stay organized, collaborative, and
-          focused on delivering a polished product together.
+          Our group application keeps teams organized, collaborative and
+          Set on producing a clean product as a team.
         </p>
       </header>
 
