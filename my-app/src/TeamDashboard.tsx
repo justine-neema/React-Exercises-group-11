@@ -85,7 +85,10 @@ const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
   console.log('Submitted member name:', newMemberName)
   setNewMemberName('')
 }
-
+// Author: Phillip Mulindwa (Task 45: Remove Member)
+const handleRemoveMember = (id: number): void => {
+  setTeamMembers(prevMembers => prevMembers.filter(member => member.id !== id))
+}
   return (
     <>
       <header className="dashboard-header">
